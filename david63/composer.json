@@ -1,0 +1,30 @@
+{
+	"name": "david63/prunelog",
+	"type": "phpbb-extension",
+	"description": "Adds a configurable option to once a day remove log file entries after n days",
+	"homepage": "",
+	"version": "1.0.0",
+	"time": "2014-05-25",
+	"license": "GPL-2.0",
+	"authors": [{
+			"name": "David Wood",
+			"username": "david63",
+			"email": "",
+			"homepage": "",
+			"role": "Developer"
+		}],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"extra": {
+		"display-name": "Prune Log",
+		"soft-require": {
+			"phpbb/phpbb": "3.1.*@dev"
+		},
+		"version-check": {
+			"host": "mywebworld.org.uk",
+			"directory": "/extensions",
+			"filename": "prunelog_versions.json"
+		}
+	}
+}
