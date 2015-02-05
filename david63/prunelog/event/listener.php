@@ -19,29 +19,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 */
 class listener implements EventSubscriberInterface
 {
-	/** @var \phpbb\config\config */
-	protected $config;
-
-	/** @var \phpbb\request\request */
-	protected $request;
-
-	/**
-	* Constructor for listener
-	*
-	* @param \phpbb\config\config $config phpBB config
-	* @param \phpbb\request\request $request phpBB request
-	* @access public
-	*/
-	public function __construct($config, $request)
-	{
-		$this->config	= $config;
-		$this->request	= $request;
-	}
-
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'					=> 'load_language_on_setup',
 			'core.acp_board_config_edit_add'	=> 'acp_board_settings',
 		);
 	}
@@ -78,15 +58,5 @@ class listener implements EventSubscriberInterface
 
 			$event->offsetSet('display_vars', $new_display_var);
 		}
-	}
-
-	public function load_language_on_setup($event)
-	{
-		$lang_set_ext	= $event['lang_set_ext'];
-		$lang_set_ext[]	= array(
-			'ext_name' => 'david63/prunelog',
-			'lang_set' => 'prunelog',
-		);
-		$event['lang_set_ext'] = $lang_set_ext;
 	}
 }

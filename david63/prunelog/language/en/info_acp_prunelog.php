@@ -31,8 +31,14 @@ if (empty($lang) || !is_array($lang))
 // You do not need this where single placeholders are used, e.g. 'Message %d' is fine
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+//
+// Some characters you may want to copy&paste:
+// ’ » “ ” …
+//
 
 $lang = array_merge($lang, array(
+	'LOG_PRUNE_LOG' => '<strong>Log file pruned</strong>',
+	
 	'PRUNE_LOG_DAYS'			=> 'Prune log file days',
 	'PRUNE_LOG_DAYS_EXPLAIN'	=> 'The number of days to leave entries in the log files.<br />Setting this to zero will disable the pruning of the log files.',
 ));
