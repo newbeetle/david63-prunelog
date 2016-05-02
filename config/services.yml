@@ -1,0 +1,18 @@
+services:
+    david63.prunelog.listener:
+        class: david63\prunelog\event\listener
+        arguments:
+        tags:
+            - { name: event.listener }
+
+    david63.prunelog.cron.task.core.prune_log:
+        class: david63\prunelog\cron\task\core\prune_log
+        arguments:
+            - '@config'
+            - '@dbal.conn'
+            - '@log'
+            - '@user'
+        calls:
+            - [set_name, [cron.task.core.prune_log]]
+        tags:
+            - { name: cron.task }
